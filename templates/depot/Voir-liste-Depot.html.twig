@@ -1,0 +1,23 @@
+<table class="table">
+        <thead>
+            <tr>
+                <th>Lien travail</th>
+                <th>Noter</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for depot in travail.depots %}
+            <tr>
+                <td>{{ depot.id }}</td>
+                <td>{{ depot.lienDeTravail }}</td>
+                 <td>
+                  
+                    <a href="{{ path('NoterDepot', {'id': depot.id}) }}">Noter</a>
+
+
+                </td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>

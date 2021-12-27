@@ -1,0 +1,10 @@
+<table>
+{% for user in users %}
+<tr>
+ <td>{{user.email}}</td>
+ <td> 
+ <a href="{{ path('edit_user', { 'id': user.id }) }}">edit</a>
+  </td>
+</tr>
+{% endfor %}
+</table>

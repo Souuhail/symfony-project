@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Travail index{% endblock %}
+
+{% block body %}
+    <h1>Travail index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for travail in travails %}
+            <tr>
+                <td>{{ travail.id }}</td>
+                <td>{{ travail.titre }}</td>
+                <td>{{ travail.description }}</td>
+                <td>
+                    <a href="{{ path('travail_show', {'id': travail.id}) }}">show</a>
+                    <a href="{{ path('travail_edit', {'id': travail.id}) }}">edit</a>
+                    <a href="{{ path('depot_new', {'id_travail': travail.id,'id_user':app.user.id}) }}">deposer</a>
+                    <a href="{{ path('voirlistedepot', {'id': travail.id}) }}">voirlistedepot</a>
+                    
+
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('travail_new') }}">Create new</a>
+{% endblock %}
